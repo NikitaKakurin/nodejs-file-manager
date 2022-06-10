@@ -2,21 +2,34 @@ import os from 'os';
 
 async function executeOs(arg){
     if(arg==="cpus"){
-        await osCpus();
+        const cpus = getOsCpus();
+        console.log(`Total cpus: ${cpus.length}`);
+        console.log(cpus);
         return;
     }
     if(arg==="EOL"){
-        await osEOL();
+        const eol = getOsEOL();
+        console.log(`default system End-Of-Line is ${eol}`)
         return;
     }
     if(arg==="homedir"){
-        await osHomedir();
+        const homedir = getOsHomedir();
+        console.log(`home directory is ${homedir}`)
         return;
     }
-    
+    if(arg==="username"){
+        const username = getOsUsername();
+        console.log(`username is ${username}`);
+        return;
+    }
+    if(arg==="architecture"){
+        const arch = getOsArch();
+        console.log(`CPU architecture is ${arch}`);
+        return;
+    }
 }
 
-async function osCpus(){
+function getOsCpus(){
     // Get host machine CPUs info (overall amount
     // of CPUS plus model and clock rate (in GHz)
     //  for each of them)
@@ -28,25 +41,35 @@ async function osCpus(){
             speed: cpu.speed
         };
     })
-    console.log(`Total cpus: ${cpus.length}`);
-    console.log(result);
-    return;
+    return result;
 }
 
-async function osEOL(){
+function getOsEOL(){
     // Get EOL (default system End-Of-Line)
 
     const eol = os.EOL==='\n'?'\\n': '\\r\\n';
-    console.log(`default system End-Of-Line is ${eol}`)
-    return;
+    return eol;
 }
 
-async function osHomedir(){
+function getOsHomedir(){
     // Get home directory:
 
     const homedir = os.homedir;
-    console.log(`home directory is ${homedir}`)
-    return;
+    return homedir;
+}
+
+function getOsUsername(){
+//     Get current system user name 
+
+    const username = os.userInfo().username;
+    return username;
+}
+
+function getOsArch(){
+    // Get CPU architecture for which Node.js binary has compiled
+    
+        const arch = os.arch();
+        return arch;
 }
 
 
