@@ -2,12 +2,21 @@ import os from 'os';
 
 async function executeOs(arg){
     if(arg==="cpus"){
-        await oScpus();
+        await osCpus();
         return;
     }
+    if(arg==="EOL"){
+        await osEOL();
+        return;
+    }
+    
 }
 
-async function oScpus(){
+async function osCpus(){
+    // Get host machine CPUs info (overall amount
+    // of CPUS plus model and clock rate (in GHz)
+    //  for each of them)
+    
     const cpus = os.cpus();
     const result = cpus.map(cpu => {
         return{
@@ -15,7 +24,17 @@ async function oScpus(){
             speed: cpu.speed
         };
     })
-    console.log(result)
+    console.log(`Total cpus: ${cpus.length}`);
+    console.log(result);
+    return;
+}
+
+async function osEOL(){
+    // Get EOL (default system End-Of-Line)
+
+    const eol = os.EOL==='\n'?'\\n': '\\r\\n';
+    console.log(`default system End-Of-Line is ${eol}`)
+    return;
 }
 
 
