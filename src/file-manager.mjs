@@ -1,7 +1,7 @@
 import * as readline from 'readline';
 import { stdin, stdout, argv } from 'process';
 
-import {executeLs, executeUp, executeOs} from './commands/index.js';
+import {executeLs, executeUp, executeOs, executeCd} from './commands/index.js';
 
 const args = argv.slice(2);
 const currentDirectory = {};
@@ -9,7 +9,7 @@ const commandsFull = [ 'os --EOL', 'os --cpus',
                         'os --homedir', 'os --username',
                         'os --architecture', 'up', 'ls', 'cd..' ];  
 const commandsWithArgs = {
-                  // cd: executeCd, 
+                  cd: executeCd, 
                   // cat: executeCat,
                   // add: executeAdd,
                   // rn: executeRn,
@@ -36,10 +36,15 @@ const rl = readline.createInterface({
 
 rl.on('line', async(command)=>{
   const cmd = command.toString().trim();
-  await processCommand(cmd);
+  try{
+    await processCommand(cmd);
+    directoryMessage = `You are currently in ${currentDirectory.path}`
+    console.log(directoryMessage);
+  }catch(err){
+    console.log('Operation failed')
+  }
 
-  directoryMessage = `You are currently in ${currentDirectory.path}`
-  console.log(directoryMessage);
+
 })
     
 async function  processCommand(command){
@@ -64,13 +69,13 @@ async function  processCommand(command){
     }
   }
 
-  // if(commandsWithArgsKeys.some((cmd)=>command.startsWith(`${cmd} `))){
-  //   const firstSpaceIndex = command.indexOf(' ');
-  //   const cmd = command.slice(0, firstSpaceIndex);
-  //   const args = command.slice(firstSpaceIndex).trim();
-  //   await commandsWithArgs[cmd](args);
-  //   return;    
-  // }
+  if(commandsWithArgsKeys.some((cmd)=>command.startsWith(`${cmd} `))){
+    const firstSpaceIndex = command.indexOf(' ');
+    const cmd = command.slice(0, firstSpaceIndex);
+    const args = command.slice(firstSpaceIndex).trim();
+    await commandsWithArgs[cmd](args);
+    return;    
+  }
 
   console.log('Invalid input');
   return;
