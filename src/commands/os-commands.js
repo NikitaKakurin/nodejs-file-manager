@@ -1,30 +1,36 @@
 import os from 'os';
+import showDirectory from './showDirectory.js';
 
 async function executeOs(arg){
     if(arg==="cpus"){
         const cpus = getOsCpus();
         console.log(`Total cpus: ${cpus.length}`);
         console.log(cpus);
+        showDirectory();
         return;
     }
     if(arg==="EOL"){
         const eol = getOsEOL();
         console.log(`default system End-Of-Line is ${eol}`)
+        showDirectory();
         return;
     }
     if(arg==="homedir"){
         const homedir = getOsHomedir();
         console.log(`home directory is ${homedir}`)
+        showDirectory();
         return;
     }
     if(arg==="username"){
         const username = getOsUsername();
         console.log(`username is ${username}`);
+        showDirectory();
         return;
     }
     if(arg==="architecture"){
         const arch = getOsArch();
         console.log(`CPU architecture is ${arch}`);
+        showDirectory();
         return;
     }
 }

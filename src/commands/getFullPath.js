@@ -18,7 +18,9 @@ async function getFullPath(pathToTarget){
     }else {
         fullPath = path.join(currentDirectory.path, pathToTarget);
     }
+
     const realPath = await fs.realpath(fullPath);
+
     return realPath;
 }
 

@@ -1,5 +1,6 @@
 import { currentDirectory } from '../file-manager.mjs';
 import path from 'path';
+import showDirectory from './showDirectory.js';
 
 async function executeUp(){
     // Go upper from current directory (when you are in the root folder 
@@ -15,7 +16,8 @@ async function executeUp(){
         currentDirectory.path += separator;
       }
       
-    }  
+    }
+    showDirectory();  
     return;
 }
 

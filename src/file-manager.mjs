@@ -1,7 +1,8 @@
 import * as readline from 'readline';
 import { stdin, stdout, argv } from 'process';
 
-import {executeLs, executeUp, executeOs, executeCd} from './commands/index.js';
+import {executeLs, executeUp, executeOs, executeCd, 
+        executeCat} from './commands/index.js';
 
 const args = argv.slice(2);
 const currentDirectory = {};
@@ -10,7 +11,7 @@ const commandsFull = [ 'os --EOL', 'os --cpus',
                         'os --architecture', 'up', 'ls', 'cd..' ];  
 const commandsWithArgs = {
                   cd: executeCd, 
-                  // cat: executeCat,
+                  cat: executeCat,
                   // add: executeAdd,
                   // rn: executeRn,
                   // cp: executeCp,
@@ -38,13 +39,9 @@ rl.on('line', async(command)=>{
   const cmd = command.toString().trim();
   try{
     await processCommand(cmd);
-    directoryMessage = `You are currently in ${currentDirectory.path}`
-    console.log(directoryMessage);
   }catch(err){
     console.log('Operation failed')
   }
-
-
 })
     
 async function  processCommand(command){
