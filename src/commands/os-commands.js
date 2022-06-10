@@ -9,6 +9,10 @@ async function executeOs(arg){
         await osEOL();
         return;
     }
+    if(arg==="homedir"){
+        await osHomedir();
+        return;
+    }
     
 }
 
@@ -34,6 +38,14 @@ async function osEOL(){
 
     const eol = os.EOL==='\n'?'\\n': '\\r\\n';
     console.log(`default system End-Of-Line is ${eol}`)
+    return;
+}
+
+async function osHomedir(){
+    // Get home directory:
+
+    const homedir = os.homedir;
+    console.log(`home directory is ${homedir}`)
     return;
 }
 
