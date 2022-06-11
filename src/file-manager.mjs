@@ -2,7 +2,7 @@ import * as readline from 'readline';
 import { stdin, stdout, argv } from 'process';
 
 import {executeLs, executeUp, executeOs, executeCd, 
-        executeCat, executeAdd} from './commands/index.js';
+        executeCat, executeAdd, executeRn} from './commands/index.js';
 
 const args = argv.slice(2);
 const currentDirectory = {};
@@ -13,12 +13,12 @@ const commandsWithArgs = {
                   cd: executeCd, 
                   cat: executeCat,
                   add: executeAdd,
-                  // rn: executeRn,
+                  rn: executeRn,
                   // cp: executeCp,
                   // mv: executeMv,
                   // rm: executeRm,
-                  // hash: executeCp,
-                  // compress: executeCompress,
+                  // hash: calcHash,
+                  // compress: compress,
                   // decompress: decompress,
                 };
 const commandsWithArgsKeys = Object.keys(commandsWithArgs);

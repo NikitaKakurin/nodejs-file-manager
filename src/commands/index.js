@@ -4,6 +4,7 @@ import executeOs from './os-commands.js';
 import executeCd from './cd.js';
 import executeCat from './cat.js';
 import executeAdd from './add.js';
+import executeRn from './rename.js';
 
 export {
     executeLs,
@@ -11,5 +12,6 @@ export {
     executeOs,
     executeCd,
     executeCat,
-    executeAdd
+    executeAdd, 
+    executeRn,
 }
