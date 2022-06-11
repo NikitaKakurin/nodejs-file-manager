@@ -25,6 +25,7 @@ async function executeCp(arg){
     const readStream = fs.createReadStream(fullPathToFile, 'utf-8')
     const writeStream = fs.createWriteStream(pathToNewFile)
     readStream.pipe(writeStream);
+    showDirectory();
     return;
 }
 
