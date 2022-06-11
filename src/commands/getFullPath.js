@@ -16,11 +16,16 @@ async function getFullPath(pathToTarget){
         }
 
     }else {
-        fullPath = path.join(currentDirectory.path, pathToTarget);
+
+        if(pathToTarget.indexOf(':')===(pathToTarget.length - 1)){
+            fullPath = pathToTarget + path.sep;
+        } else{
+            fullPath = path.join(currentDirectory.path, pathToTarget);
+        }
+        
     }
 
     const realPath = await fs.realpath(fullPath);
-
     return realPath;
 }
 
