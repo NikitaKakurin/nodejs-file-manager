@@ -3,7 +3,7 @@ import { stdin, stdout, argv } from 'process';
 
 import {executeLs, executeUp, executeOs, executeCd, 
         executeCat, executeAdd, executeRn, executeCp,
-        executeRm} from './commands/index.js';
+        executeRm, executeMv} from './commands/index.js';
 
 const args = argv.slice(2);
 const currentDirectory = {};
@@ -16,7 +16,7 @@ const commandsWithArgs = {
                   add: executeAdd,
                   rn: executeRn,
                   cp: executeCp,
-                  // mv: executeMv,
+                  mv: executeMv,
                   rm: executeRm,
                   // hash: calcHash,
                   // compress: compress,

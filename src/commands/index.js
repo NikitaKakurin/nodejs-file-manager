@@ -7,6 +7,7 @@ import executeAdd from './add.js';
 import executeRn from './rename.js';
 import executeCp from './copy.js';
 import executeRm from './remove.js';
+import executeMv from './move.js';
 
 
 export {
@@ -18,5 +19,6 @@ export {
     executeAdd, 
     executeRn,
     executeCp,
-    executeRm
+    executeRm,
+    executeMv
 }
