@@ -5,6 +5,7 @@ import getFullPath from './getFullPath.js';
 import splitTwoArgs from './splitTwoArgs.js'
 
 async function executeRn(arg){
+    // Rename file
     const arrFromArg = splitTwoArgs(arg);
     const pathToFile = arrFromArg[0];
     const newFileName = arrFromArg[1]
@@ -13,8 +14,8 @@ async function executeRn(arg){
     if(stat.isDirectory()){
         throw new Error();
     }
-    const lastSeparatorIndex = fullPath.lastIndexOf(path.sep);
-    const newFullPath = fullPath.slice(0,lastSeparatorIndex+1) + newFileName;
+    const dir = path.parse(fullPath).dir;
+    const newFullPath = path.join(dir, newFileName);
     await fs.rename(fullPath, newFullPath);
     showDirectory();
     return;
