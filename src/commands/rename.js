@@ -16,6 +16,12 @@ async function executeRn(arg){
     }
     const dir = path.parse(fullPath).dir;
     const newFullPath = path.join(dir, newFileName);
+    try{
+        await fs.access(newFullPath);
+        console.log("The file already exist in " + newFullPath)
+        console.log("Operation failed")
+        return;
+    } catch(err){}
     await fs.rename(fullPath, newFullPath);
     showDirectory();
     return;
