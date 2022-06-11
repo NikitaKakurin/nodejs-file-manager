@@ -2,7 +2,7 @@ import * as readline from 'readline';
 import { stdin, stdout, argv } from 'process';
 
 import {executeLs, executeUp, executeOs, executeCd, 
-        executeCat, executeAdd, executeRn} from './commands/index.js';
+        executeCat, executeAdd, executeRn, executeCp} from './commands/index.js';
 
 const args = argv.slice(2);
 const currentDirectory = {};
@@ -14,7 +14,7 @@ const commandsWithArgs = {
                   cat: executeCat,
                   add: executeAdd,
                   rn: executeRn,
-                  // cp: executeCp,
+                  cp: executeCp,
                   // mv: executeMv,
                   // rm: executeRm,
                   // hash: calcHash,
