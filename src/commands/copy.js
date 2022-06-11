@@ -1,9 +1,9 @@
-import fs from 'fs';
 import * as fsPromise from 'fs/promises';
 import showDirectory from './showDirectory.js';
 import path from 'path';
 import getFullPath from './getFullPath.js';
 import splitTwoArgs from './splitTwoArgs.js'
+import copyFile from "./copyFile.js";
 
 async function executeCp(arg){
     // Copy file 
@@ -21,11 +21,9 @@ async function executeCp(arg){
         console.log("Operation failed")
         return;
     } catch(err){}
-
-    const readStream = fs.createReadStream(fullPathToFile, 'utf-8')
-    const writeStream = fs.createWriteStream(pathToNewFile)
-    readStream.pipe(writeStream);
-    showDirectory();
+    await copyFile(fullPathToFile,
+                    pathToNewFile,
+                    showDirectory);
     return;
 }
 
