@@ -4,6 +4,7 @@ import path from 'path';
 import getFullPath from '../utils/getFullPath.js';
 import splitTwoArgs from '../utils/splitTwoArgs.js'
 import copyFile from "../utils/copyfile.js";
+import isFileAlreadyExist from '../utils/isFileAlreadyExist.js';
 
 async function executeCp(arg){
     // Copy file 
@@ -15,12 +16,10 @@ async function executeCp(arg){
     const fileName = path.parse(fullPathToFile).base;
     const pathToNewFile  = path.join(fullPathToTargetFolder, fileName);
 
-    try{
-        await fsPromise.access(pathToNewFile);
-        console.log("The file already exist in " + pathToNewFile)
-        console.log("Operation failed")
+    if(await isFileAlreadyExist(pathToNewFile)){
         return;
-    } catch(err){}
+    };
+
     await copyFile(fullPathToFile,
                     pathToNewFile,
                     finishCopy);
