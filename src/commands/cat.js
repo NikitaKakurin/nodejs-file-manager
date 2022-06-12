@@ -8,9 +8,7 @@ async function executeCat(pathToFile) {
     const filePath = await getFullPath(pathToFile);
     const readStream = fs.createReadStream(filePath,'utf-8');
 
-    readStream.on('data', (data) => {
-        console.log(data);
-    })
+    readStream.pipe(process.stdout)
 
     readStream.on('end', () => {
         showDirectory();
