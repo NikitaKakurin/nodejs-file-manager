@@ -39,13 +39,21 @@ const rl = readline.createInterface({
 
 rl.on('line', async(command)=>{
   const cmd = command.toString().trim();
+  if(cmd === '.exit'){
+    rl.close();
+    return;
+  }
   // try{
     await processCommand(cmd);
   // }catch(err){
   //   console.log('Operation failed')
   // }
 })
-    
+
+rl.on('close', () => {
+  console.log(`Thank you for using File Manager, ${username}!`)
+})
+
 async function  processCommand(command){
 
   if(commandsFull.includes(command)){
@@ -75,7 +83,7 @@ async function  processCommand(command){
     await commandsWithArgs[cmd](args);
     return;    
   }
-
+  
   console.log('Invalid input');
   return;
 }
