@@ -35,7 +35,7 @@ async function decompress(arg) {
     writeableStream,
     (err) => {
       if (err) {
-        console.log('operation failed');
+        console.log('Operation failed');
       }
     }
   )
