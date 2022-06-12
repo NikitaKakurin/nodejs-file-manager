@@ -13,7 +13,8 @@ async function executeCd(pathToFolder){
     console.log('you input path to the file');
     throw new Error();
   }
-  currentDirectory.path = fullPath;
+  const realPath = await fs.realpath(fullPath);
+  currentDirectory.path = realPath;
   showDirectory()
 }
 

@@ -25,7 +25,6 @@ async function getFullPath(pathToTarget){
         
     }
 
-    // const realPath = await fs.realpath(fullPath);
     return fullPath;
 }
 
