@@ -3,7 +3,7 @@ import { stdin, stdout, argv } from 'process';
 
 import {executeLs, executeUp, executeOs, executeCd, 
         executeCat, executeAdd, executeRn, executeCp,
-        executeRm, executeMv} from './commands/index.js';
+        executeRm, executeMv, calcHash} from './commands/index.js';
 
 const args = argv.slice(2);
 const currentDirectory = {};
@@ -18,7 +18,7 @@ const commandsWithArgs = {
                   cp: executeCp,
                   mv: executeMv,
                   rm: executeRm,
-                  // hash: calcHash,
+                  hash: calcHash,
                   // compress: compress,
                   // decompress: decompress,
                 };
@@ -38,11 +38,11 @@ const rl = readline.createInterface({
 
 rl.on('line', async(command)=>{
   const cmd = command.toString().trim();
-  try{
+  // try{
     await processCommand(cmd);
-  }catch(err){
-    console.log('Operation failed')
-  }
+  // }catch(err){
+  //   console.log('Operation failed')
+  // }
 })
     
 async function  processCommand(command){

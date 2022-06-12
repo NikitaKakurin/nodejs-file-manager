@@ -8,6 +8,7 @@ import executeRn from './rename.js';
 import executeCp from './copy.js';
 import executeRm from './remove.js';
 import executeMv from './move.js';
+import calcHash from './hash.js';
 
 
 export {
@@ -20,5 +21,6 @@ export {
     executeRn,
     executeCp,
     executeRm,
-    executeMv
+    executeMv,
+    calcHash
 }
