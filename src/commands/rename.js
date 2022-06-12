@@ -3,6 +3,7 @@ import showDirectory from '../utils/showDirectory.js';
 import path from 'path';
 import getFullPath from '../utils/getFullPath.js';
 import splitTwoArgs from '../utils/splitTwoArgs.js'
+import isFileAlreadyExist from '../utils/isFileAlreadyExist.js';
 
 async function executeRn(arg){
     // Rename file
@@ -16,12 +17,11 @@ async function executeRn(arg){
     }
     const dir = path.parse(fullPath).dir;
     const newFullPath = path.join(dir, newFileName);
-    try{
-        await fs.access(newFullPath);
-        console.log("The file already exist in " + newFullPath)
-        console.log("Operation failed")
+
+    if(await isFileAlreadyExist(newFullPath)){
         return;
-    } catch(err){}
+    };
+
     await fs.rename(fullPath, newFullPath);
     showDirectory();
     return;
