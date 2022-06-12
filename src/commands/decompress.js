@@ -7,7 +7,8 @@ import showDirectory from '../utils/showDirectory.js';
 import splitTwoArgs from '../utils/splitTwoArgs.js';
 
 async function decompress(arg) {
-
+  // Decompress file (using Brotli algorithm)
+  // decompress path_to_file path_to_destination(with filename)
     const arrFromArg = splitTwoArgs(arg);
     const pathToArch = arrFromArg[0];
     const pathToTarget= arrFromArg[1];

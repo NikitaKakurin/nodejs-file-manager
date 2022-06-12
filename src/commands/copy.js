@@ -23,8 +23,13 @@ async function executeCp(arg){
     } catch(err){}
     await copyFile(fullPathToFile,
                     pathToNewFile,
-                    showDirectory);
+                    finishCopy);
     return;
+}
+
+function finishCopy(){
+    console.log('The file is copied');
+    showDirectory();
 }
 
 export default executeCp;

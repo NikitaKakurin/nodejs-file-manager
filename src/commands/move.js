@@ -7,7 +7,8 @@ import path from 'path';
 
 
 async function executeMv(arg) {
-
+    // Move file (same as copy but initial file is deleted):
+    // mv path_to_file path_to_new_directory
     const arrFromArg = splitTwoArgs(arg);
     const pathToFile = arrFromArg[0];
     const pathToTargetFolder= arrFromArg[1];
@@ -30,6 +31,7 @@ async function executeMv(arg) {
 
     async function deleteFile(){
         await fs.unlink(fullPathToFile);
+        console.log('The file is moved');
         showDirectory();
     }
 

@@ -8,7 +8,9 @@ import showDirectory from '../utils/showDirectory.js';
 import splitTwoArgs from '../utils/splitTwoArgs.js';
 
 async function compress(arg) {
-
+  // Compress file (using Brotli algorithm)
+  // compress path_to_file path_to_destination(with archive name)
+  
     const arrFromArg = splitTwoArgs(arg);
     const pathToFile = arrFromArg[0];
     const pathToTargetFolder= arrFromArg[1];

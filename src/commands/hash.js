@@ -5,6 +5,7 @@ import showDirectory from '../utils/showDirectory.js';
 
 
 async function calcHash(pathToFile) {
+  // Calculate hash for file and print it into console
   const fullPath = await getFullPath(pathToFile);
   const readableStream = fs.createReadStream(fullPath, 'utf-8');
   let data = '';

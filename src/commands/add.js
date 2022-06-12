@@ -12,6 +12,7 @@ async function executeAdd(fileName) {
         console.log("Operation failed")
     } catch(err){
         await fs.writeFile(pathToFile, "", {flag:'wx'})
+        console.log('the file is added')
         showDirectory();
     }
 }
