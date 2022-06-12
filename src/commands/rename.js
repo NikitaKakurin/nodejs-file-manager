@@ -1,8 +1,8 @@
 import * as fs from 'fs/promises';
-import showDirectory from './showDirectory.js';
+import showDirectory from '../utils/showDirectory.js';
 import path from 'path';
-import getFullPath from './getFullPath.js';
-import splitTwoArgs from './splitTwoArgs.js'
+import getFullPath from '../utils/getFullPath.js';
+import splitTwoArgs from '../utils/splitTwoArgs.js'
 
 async function executeRn(arg){
     // Rename file

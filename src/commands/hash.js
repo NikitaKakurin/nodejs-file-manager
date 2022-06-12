@@ -1,7 +1,7 @@
 import fs from 'fs';
 import crypto from 'crypto';
-import getFullPath from './getFullPath.js';
-import showDirectory from './showDirectory.js';
+import getFullPath from '../utils/getFullPath.js';
+import showDirectory from '../utils/showDirectory.js';
 
 
 async function calcHash(pathToFile) {

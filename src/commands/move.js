@@ -1,8 +1,8 @@
-import showDirectory from './showDirectory.js';
-import splitTwoArgs from './splitTwoArgs.js';
+import showDirectory from '../utils/showDirectory.js';
+import splitTwoArgs from '../utils/splitTwoArgs.js';
 import * as fs from 'fs/promises';
-import getFullPath from './getFullPath.js';
-import copyFile from './copyFile.js';
+import getFullPath from '../utils/getFullPath.js';
+import copyFile from '../utils/copyfile.js';
 import path from 'path';
 
 

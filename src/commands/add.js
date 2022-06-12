@@ -1,6 +1,6 @@
 import * as fs from 'fs/promises';
 import { currentDirectory } from '../file-manager.mjs';
-import showDirectory from './showDirectory.js';
+import showDirectory from '../utils/showDirectory.js';
 import path from 'path';
 
 async function executeAdd(fileName) {

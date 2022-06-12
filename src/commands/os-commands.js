@@ -1,5 +1,5 @@
 import os from 'os';
-import showDirectory from './showDirectory.js';
+import showDirectory from '../utils/showDirectory.js';
 
 async function executeOs(arg){
     if(arg==="cpus"){

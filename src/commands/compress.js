@@ -3,9 +3,9 @@ import fs from 'fs';
 import zlib from 'zlib';
 import { pipeline } from 'stream';
 import path from 'path';
-import getFullPath from './getFullPath.js';
-import showDirectory from './showDirectory.js';
-import splitTwoArgs from './splitTwoArgs.js';
+import getFullPath from '../utils/getFullPath.js';
+import showDirectory from '../utils/showDirectory.js';
+import splitTwoArgs from '../utils/splitTwoArgs.js';
 
 async function compress(arg) {
 

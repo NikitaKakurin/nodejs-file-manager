@@ -1,9 +1,9 @@
 import * as fsPromise from 'fs/promises';
-import showDirectory from './showDirectory.js';
+import showDirectory from '../utils/showDirectory.js';
 import path from 'path';
-import getFullPath from './getFullPath.js';
-import splitTwoArgs from './splitTwoArgs.js'
-import copyFile from "./copyFile.js";
+import getFullPath from '../utils/getFullPath.js';
+import splitTwoArgs from '../utils/splitTwoArgs.js'
+import copyFile from "../utils/copyfile.js";
 
 async function executeCp(arg){
     // Copy file 
