@@ -3,7 +3,8 @@ import { stdin, stdout, argv } from 'process';
 
 import {executeLs, executeUp, executeOs, executeCd, 
         executeCat, executeAdd, executeRn, executeCp,
-        executeRm, executeMv, calcHash, compress} from './commands/index.js';
+        executeRm, executeMv, calcHash, compress,
+        decompress} from './commands/index.js';
 
 const args = argv.slice(2);
 const currentDirectory = {};
@@ -20,7 +21,7 @@ const commandsWithArgs = {
                   rm: executeRm,
                   hash: calcHash,
                   compress: compress,
-                  // decompress: decompress,
+                  decompress: decompress,
                 };
 const commandsWithArgsKeys = Object.keys(commandsWithArgs);
 const username = args.filter(arg => arg.startsWith('--username='))[0].slice(11);

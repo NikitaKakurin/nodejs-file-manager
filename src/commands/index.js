@@ -10,7 +10,7 @@ import executeRm from './remove.js';
 import executeMv from './move.js';
 import calcHash from './hash.js';
 import compress from './compress.js';
-
+import decompress from './decompress.js';
 
 export {
     executeLs,
@@ -24,5 +24,6 @@ export {
     executeRm,
     executeMv,
     calcHash,
-    compress
+    compress,
+    decompress
 }
