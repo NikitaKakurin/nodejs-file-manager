@@ -9,6 +9,7 @@ import executeCp from './copy.js';
 import executeRm from './remove.js';
 import executeMv from './move.js';
 import calcHash from './hash.js';
+import compress from './compress.js';
 
 
 export {
@@ -22,5 +23,6 @@ export {
     executeCp,
     executeRm,
     executeMv,
-    calcHash
+    calcHash,
+    compress
 }
