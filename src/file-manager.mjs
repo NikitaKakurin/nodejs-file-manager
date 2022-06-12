@@ -80,7 +80,14 @@ async function  processCommand(command){
     const firstSpaceIndex = command.indexOf(' ');
     const cmd = command.slice(0, firstSpaceIndex);
     const args = command.slice(firstSpaceIndex).trim();
-    await commandsWithArgs[cmd](args);
+    try{
+      await commandsWithArgs[cmd](args);
+    } catch (err){
+      if(err){
+        throw new Error('Operation failed');
+      }
+    }
+    
     return;    
   }
   
