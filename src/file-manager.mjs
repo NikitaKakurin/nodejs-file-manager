@@ -43,11 +43,11 @@ rl.on('line', async(command)=>{
     rl.close();
     return;
   }
-  // try{
+  try{
     await processCommand(cmd);
-  // }catch(err){
-  //   console.log('Operation failed')
-  // }
+  }catch(err){
+    console.log('Operation failed')
+  }
 })
 
 rl.on('close', () => {
