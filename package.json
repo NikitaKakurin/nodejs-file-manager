@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-file-manager",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "nodejs-file-manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/file-manager.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikitaKakurin/nodejs-file-manager.git"
+  },
+  "keywords": [
+    "nodejs-file-manager"
+  ],
+  "author": "nikitaKakurin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NikitaKakurin/nodejs-file-manager/issues"
+  },
+  "homepage": "https://github.com/NikitaKakurin/nodejs-file-manager#readme"
+}
